@@ -15,6 +15,9 @@
 }
 
 body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
     margin: 0px;
     background-color: var(--bg-base-color);
 }
@@ -23,36 +26,179 @@ body {
 ヘッダーエリア
 --------------------------*/
 .HeaderArea {
+    width: 100%;
+    background: linear-gradient(var(--bg-main-color) 75%, white);
+}
+
+.HeaderContent {
     display: flex;
     width: 100%;
-    height: 300px;
-    background: linear-gradient(var(--bg-main-color) 75%, white);
+    height: 100px;
     align-items: center;
-    position: fixed;
+    text-align: center;
 }
 
 .title {
+    position: absolute;
     font-size: x-large;
-    font-weight: bold;
     color: white;
-    padding-left: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    font-family: 'Noto Sans JP', sans-serif;
 }
+
+/*============
+nav
+=============*/
+nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    bottom: 0;
+    width: 300px;
+    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: all .5s;
+    z-index: 3;
+    opacity: 0;
+  }
+  .open nav {
+    left: 0;
+    opacity: 1;
+  }
+  nav .inner {
+    padding: 25px;
+  }
+  nav .inner ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav .inner ul li {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px solid #333;
+  }
+  nav .inner ul li a {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    padding: 1em;
+    text-decoration: none;
+    transition-duration: 0.2s;
+  }
+  nav .inner ul li a:hover {
+    background: #e4e4e4;
+  }
+  @media screen and (max-width: 767px) {
+    nav {
+      left: -220px;
+      width: 220px;
+    }
+  }
+  /*============
+  .toggle_btn
+  =============*/
+  .toggle_btn {
+    display: block;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 30px;
+    height: 30px;
+    transition: all .5s;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .open .toggle_btn {
+    left: 330px;
+  }
+  .toggle_btn span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 4px;
+    transition: all .5s;
+  }
+  .toggle_btn span:nth-child(1) {
+    top: 4px;
+  }
+  .toggle_btn span:nth-child(2) {
+    top: 14px;
+  }
+  .toggle_btn span:nth-child(3) {
+    bottom: 4px;
+  }
+  .open .toggle_btn span {
+    background-color: #fff;
+  }
+  .open .toggle_btn {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  .open .toggle_btn span:nth-child(1), .open .toggle_btn span:nth-child(3) {
+    width: 16px;
+  }
+  .open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translate(-1px,4px) rotate(-45deg);
+    transform: translate(-1px,4px) rotate(-45deg);
+  }
+  .open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translate(-1px,-4px) rotate(45deg);
+    transform: translate(-1px,-4px) rotate(45deg);
+  }
+  @media screen and (max-width: 767px) {
+    .open .toggle_btn {
+      left: 250px;
+    }
+  }
+  /*============
+  #mask
+  =============*/
+  #mask {
+    display: none;
+    transition: all .5s;
+  }
+  .open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .8;
+    z-index: 2;
+    cursor: pointer;
+  }
 
 /*-------------------------
 メインエリア
 --------------------------*/
 .MainArea {
+    /*position: absolute;*/
+    flex: 1;
+    width: 100%;
+    z-index: -1;
+}
+
+.MainContent {
     position: absolute;
     width: 100%;
-    padding-top: 0px;
     left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
-    z-index: -1;
 }
-
-.MainArea img {
+.MainContent img {
     width: 100%;
     height: 220px;
     object-fit: cover;
@@ -64,22 +210,27 @@ body {
 フッターエリア
 --------------------------*/
 .FooterArea {
+    /*position: absolute;*/
+    width: 100%;
+    background-color: var(--bg-base-color);
+    bottom: 10px;
+}
+
+.FooterContent {
     position: absolute;
     width: 95%;
     height: 150px;
-    background-color: var(--bg-base-color);
-    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
 }
 
-.FooterArea ul {
+.FooterContent ul {
     list-style: none;
 }
 
-.FooterArea li {
+.FooterContent li {
     margin-bottom: 5px;
 }
 
@@ -88,7 +239,7 @@ a:link, a:visited, a:hover, a:active {
     text-decoration: none;
 }
 
-.FooterArea a:hover {
+.FooterContent a:hover {
     color: ver(--font-main-color);
     text-decoration: underline;
 }
@@ -96,10 +247,12 @@ a:link, a:visited, a:hover, a:active {
 .copyright {
     position: absolute;
     left: 50%;
+    width: 100%;
     bottom: 10px;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
+    text-align: center;
 }
 
 .copyright label {
@@ -114,13 +267,19 @@ a:link, a:visited, a:hover, a:active {
     /*-------------------------
     ヘッダーエリア
     --------------------------*/
-    .HeaderArea {
-        height: 70px;
+    .title {
+        left: 20px;
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
     }
     /*-------------------------
     メインエリア
     --------------------------*/
-    .MainArea img {
+    .MainArea {
+        padding-top: 0px;
+    }
+    .MainContent img {
         height: 400px;
         object-position: 0 80%;
     }
@@ -134,14 +293,17 @@ a:link, a:visited, a:hover, a:active {
     /*-------------------------
     メインエリア
     --------------------------*/
-    .MainArea img {
+    .HeaderContent {
+        height: 70px;
+    }
+    .MainContent img {
         height: 500px;
         object-position: 0 80%;
     }
     /*-------------------------
     フッターエリア
     --------------------------*/
-    .FooterArea {
+    .FooterContent {
         height: 100px;
     }
     .links li {
