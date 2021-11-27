@@ -10,19 +10,25 @@
     --bg-main-color: royalblue;
     /* 背景色：アクセントカラー */
     --bg-accent-color: springgreen;
+    /* フォント：メインカラー */
+    --font-main-color: black;
 }
 
 body {
     margin: 0px;
+    background-color: var(--bg-base-color);
 }
+
+/*-------------------------
+ヘッダーエリア
+--------------------------*/
 .HeaderArea {
     display: flex;
     width: 100%;
-    height: 70px;
-    background-color: var(--bg-main-color);
+    height: 300px;
+    background: linear-gradient(var(--bg-main-color) 75%, white);
     align-items: center;
     position: fixed;
-    text-align: center;
 }
 
 .title {
@@ -32,34 +38,118 @@ body {
     padding-left: 20px;
 }
 
+/*-------------------------
+メインエリア
+--------------------------*/
 .MainArea {
+    position: absolute;
     width: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-top: 110px;
+    padding-top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    z-index: -1;
 }
 
-.FooterArea {
-    display: flex;
+.MainArea img {
     width: 100%;
-    height: 100px;
-    background-color: var(--bg-main-color);
+    height: 220px;
+    object-fit: cover;
+    object-position: 0 70%;
+    opacity: 0.8;
+}
+
+/*-------------------------
+フッターエリア
+--------------------------*/
+.FooterArea {
     position: absolute;
-    bottom: 0;
+    width: 95%;
+    height: 150px;
+    background-color: var(--bg-base-color);
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+.FooterArea ul {
+    list-style: none;
+}
+
+.FooterArea li {
+    margin-bottom: 5px;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: ver(--font-main-color);
+    text-decoration: none;
+}
+
+.FooterArea a:hover {
+    color: ver(--font-main-color);
+    text-decoration: underline;
+}
+
+.copyright {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+.copyright label {
+    color: ver(--font-main-color);
+    font-size: small;
 }
 
 /*=====================================
 481px以上に適用されるCSS（タブレット用）
 ======================================*/
 @media screen and (min-width: 481px) {
-    
+    /*-------------------------
+    ヘッダーエリア
+    --------------------------*/
+    .HeaderArea {
+        height: 70px;
+    }
+    /*-------------------------
+    メインエリア
+    --------------------------*/
+    .MainArea img {
+        height: 400px;
+        object-position: 0 80%;
+    }
+
 }
 
 /*=====================================
 960px以上に適用されるCSS（PC用） 
 ======================================*/
 @media screen and (min-width: 960px) {
-    header {
-        height: 40px;
+    /*-------------------------
+    メインエリア
+    --------------------------*/
+    .MainArea img {
+        height: 500px;
+        object-position: 0 80%;
     }
+    /*-------------------------
+    フッターエリア
+    --------------------------*/
+    .FooterArea {
+        height: 100px;
+    }
+    .links li {
+        display: inline;
+        margin-right: 10px;;
+    }
+    .copyright label {
+        font-size: medium;
+    }
+
 }
