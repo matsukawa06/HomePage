@@ -10,11 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/common.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        //共通パーツの読み込み
+        $(function() {
+            $("#navArea").load("navArea.html");
+        });
+    </script>
 </head>
 
 <body>
     <!-- ナビエリア -->
-    <div id="navArea">
+    <div id="navArea"></div>
+    <!-- <div id="navArea">
         <nav>
             <div class="inner">
                 <ul>
@@ -32,7 +39,7 @@
         </div>
 
         <div id="mask"></div>
-    </div>
+    </div> -->
     <!-- ヘッダーエリア -->
     <div class="HeaderArea">
         <div class="HeaderContent">
