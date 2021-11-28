@@ -28,7 +28,7 @@ body {
 /*-------------------------
 ヘッダーエリア
 --------------------------*/
-.HeaderArea {
+#HeaderArea {
     position: fixed;
     width: 100%;
     background: linear-gradient(var(--bg-main-color) 75%, white);
@@ -57,11 +57,11 @@ body {
 /*-------------------------
 メインエリア
 --------------------------*/
-.MainArea {
+#MainArea {
     flex: 1;
     width: 100%;
     margin-top: 70px;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     z-index: 0;
 }
 
@@ -122,10 +122,10 @@ body {
 /*-------------------------
 フッターエリア
 --------------------------*/
-.FooterArea {
-  margin-top: 80px;
+#FooterArea {
   width: 100%;
-  background-color: black;
+  height: 150px;
+  background-color: var(--bg-main-color);
 }
 
 .FooterContent {
@@ -147,12 +147,12 @@ body {
 }
 
 a:link, a:visited, a:hover, a:active {
-    color: var(--font-base-color);
+    color: var(--font-main-color);
     text-decoration: none;
 }
 
 .FooterContent a:hover {
-    color: var(--font-base-color);
+    color: var(--font-main-color);
     text-decoration: underline;
 }
 
@@ -168,7 +168,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .copyright label {
-    color: var(--font-base-color);
+    color: var(--font-main-color);
     font-size: small;
 }
 

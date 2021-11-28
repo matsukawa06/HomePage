@@ -2,12 +2,34 @@
 <html>
 
 <head>
-    <title>利用規約・プライバシーポリシー</title>
+    <title>利用規約</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="content-type" charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        //共通パーツの読み込み
+        $(function () {
+            $("#navArea").load("../navArea.html");
+            $("#HeaderArea").load("../headerArea.html");
+            $("#FooterArea").load("../footerArea.html");
+            $("#scriptLoad").load("../scriptLoad.html");
+        });
+    </script>
 </head>
 
 <body>
+    <!-- ナビエリア -->
+    <div id="navArea"></div>
+    <!-- ヘッダーエリア -->
+    <div id="HeaderArea"></div>
+    <!-- メインエリア -->
+    <div id="MainArea">
+
+    </div>
     <p>2020年5月10日制定・施行</p>
     <p>
         本アプリサービス運営者(以下運営者)は、以下のとおり個人情報保護方針を定め、個人情報保護の重要性の認識と取組みを徹底することにより、個人情報の保護を推進致します。</p>
@@ -66,6 +88,11 @@
     <h2>お問い合せ</h2>
     <p>本アプリの個人情報の取扱に関するお問い合せは下記までご連絡ください。</p>
     <p>Mail: xxxx.yyyyy@mail.com</p>
+
+    <!-- フッターエリア -->
+    <div id="FooterArea"></div>
+    <!-- スクリプト -->
+    <div id="scriptLoad"></div>
 </body>
 
 </html>
