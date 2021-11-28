@@ -9,9 +9,11 @@
     /* 背景色：メインカラー */
     --bg-main-color: royalblue;
     /* 背景色：アクセントカラー */
-    --bg-accent-color: springgreen;
+    --bg-accent-color: deepskyblue;
+    /* フォント：ベースカラー */
+    --font-base-color: dimgray;
     /* フォント：メインカラー */
-    --font-main-color: black;
+    --font-main-color: white;
 }
 
 body {
@@ -20,28 +22,31 @@ body {
     min-height: 100vh;
     margin: 0px;
     background-color: var(--bg-base-color);
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 /*-------------------------
 ヘッダーエリア
 --------------------------*/
 .HeaderArea {
+    position: fixed;
     width: 100%;
     background: linear-gradient(var(--bg-main-color) 75%, white);
+    z-index: 10;
 }
 
 .HeaderContent {
     display: flex;
     width: 100%;
-    height: 100px;
+    height: 70px;
     align-items: center;
     text-align: center;
 }
 
 .title {
     position: absolute;
-    font-size: x-large;
-    color: white;
+    font-size: 16pt;
+    color: var(--font-main-color);
     left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
@@ -49,6 +54,127 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+/*-------------------------
+メインエリア
+--------------------------*/
+.MainArea {
+    flex: 1;
+    width: 100%;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    z-index: 0;
+}
+
+.MainContent {
+    width: 100%;
+}
+
+.MainContent img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: 0 70%;
+    opacity: 0.8;
+}
+.MainContent_TopText {
+    font-size: medium;
+    color: var(--font-base-color);
+    text-align: center;
+}
+.MainContent_navList {
+  margin-top: 80px;
+  width: 100%;
+  text-align: center;
+}
+
+.MainContent_navList_item {
+  display: inline-block;
+  width: 60%;
+  max-width: 300px;
+  border: 1px solid var(--font-base-color);
+  border-radius: 10px;
+}
+
+.MainContent_navList_item img {
+  width: 100%;
+  max-height: 150px;
+  border-radius: 10px 10px 0 0;
+  z-index: 8;
+}
+
+
+.MainContent_navList_item div {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  margin-top: -5px;
+  background-color: var(--bg-main-color);
+  color: var(--font-main-color);
+  border-radius: 0 0 9px 9px;
+  align-items: center;
+  text-align: center;
+}
+
+.MainContent_navList_item p {
+  width: 100%;
+}
+
+/*-------------------------
+フッターエリア
+--------------------------*/
+.FooterArea {
+  margin-top: 80px;
+  width: 100%;
+  background-color: black;
+}
+
+.FooterContent {
+    position: absolute;
+    width: 95%;
+    height: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+.FooterContent ul {
+    list-style: none;
+}
+
+.FooterContent li {
+    margin-bottom: 5px;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: var(--font-base-color);
+    text-decoration: none;
+}
+
+.FooterContent a:hover {
+    color: var(--font-base-color);
+    text-decoration: underline;
+}
+
+.copyright {
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    text-align: center;
+}
+
+.copyright label {
+    color: var(--font-base-color);
+    font-size: small;
+}
+
+/*-------------------------
+ハンバーガーナビエリア
+--------------------------*/
 /*============
 nav
 =============*/
@@ -59,12 +185,12 @@ nav {
     left: -300px;
     bottom: 0;
     width: 300px;
-    background: #ffffff;
+    background: var(--bg-main-color);
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     transition: all .5s;
-    z-index: 3;
+    z-index: 15;
     opacity: 0;
   }
   .open nav {
@@ -82,18 +208,18 @@ nav {
   nav .inner ul li {
     position: relative;
     margin: 0;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid white;
   }
   nav .inner ul li a {
     display: block;
-    color: #333;
+    color: var(--font-main-color);
     font-size: 14px;
     padding: 1em;
     text-decoration: none;
     transition-duration: 0.2s;
   }
   nav .inner ul li a:hover {
-    background: #e4e4e4;
+    background: var(--bg-main-color);
   }
   @media screen and (max-width: 767px) {
     nav {
@@ -107,13 +233,13 @@ nav {
   .toggle_btn {
     display: block;
     position: fixed;
-    top: 30px;
+    top: 20px;
     left: 30px;
     width: 30px;
     height: 30px;
     transition: all .5s;
     cursor: pointer;
-    z-index: 3;
+    z-index: 15;
   }
   .open .toggle_btn {
     left: 330px;
@@ -124,7 +250,7 @@ nav {
     left: 0;
     width: 30px;
     height: 2px;
-    background-color: #333;
+    background-color: var(--bg-base-color);
     border-radius: 4px;
     transition: all .5s;
   }
@@ -176,98 +302,26 @@ nav {
     height: 100%;
     background: #000;
     opacity: .8;
-    z-index: 2;
+    z-index: 12;
     cursor: pointer;
   }
-
-/*-------------------------
-メインエリア
---------------------------*/
-.MainArea {
-    /*position: absolute;*/
-    flex: 1;
-    width: 100%;
-    z-index: -1;
-}
-
-.MainContent {
-    position: absolute;
-    width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-}
-.MainContent img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    object-position: 0 70%;
-    opacity: 0.8;
-}
-
-/*-------------------------
-フッターエリア
---------------------------*/
-.FooterArea {
-    /*position: absolute;*/
-    width: 100%;
-    background-color: var(--bg-base-color);
-    bottom: 10px;
-}
-
-.FooterContent {
-    position: absolute;
-    width: 95%;
-    height: 150px;
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-}
-
-.FooterContent ul {
-    list-style: none;
-}
-
-.FooterContent li {
-    margin-bottom: 5px;
-}
-
-a:link, a:visited, a:hover, a:active {
-    color: ver(--font-main-color);
-    text-decoration: none;
-}
-
-.FooterContent a:hover {
-    color: ver(--font-main-color);
-    text-decoration: underline;
-}
-
-.copyright {
-    position: absolute;
-    left: 50%;
-    width: 100%;
-    bottom: 10px;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    text-align: center;
-}
-
-.copyright label {
-    color: ver(--font-main-color);
-    font-size: small;
-}
 
 /*=====================================
 481px以上に適用されるCSS（タブレット用）
 ======================================*/
 @media screen and (min-width: 481px) {
     /*-------------------------
+    ハンバーガーメニュー
+    --------------------------*/
+    #navArea {
+        visibility: hidden;
+        display: none;
+    }
+    /*-------------------------
     ヘッダーエリア
     --------------------------*/
     .title {
+        font-size: x-large;
         left: 20px;
         transform: translateX(0%);
         -webkit-transform: translateX(0%);
@@ -283,7 +337,9 @@ a:link, a:visited, a:hover, a:active {
         height: 400px;
         object-position: 0 80%;
     }
-
+    .MainContent_navList_item img {
+      max-height: 200px;
+    }
 }
 
 /*=====================================
