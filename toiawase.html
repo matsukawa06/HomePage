@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>お問い合わせ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta http-equiv="content-type" charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        //共通パーツの読み込み
+        $(function () {
+            $("#navArea").load("./pageCommon/navArea.html");
+            $("#HeaderArea").load("./pageCommon/headerArea.html");
+            $("#FooterArea").load("./pageCommon/footerArea.html");
+        });
+    </script>
+    <style>
+        .MainContent {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ナビエリア -->
+    <div id="navArea"></div>
+    <!-- ヘッダーエリア -->
+    <div id="HeaderArea"></div>
+    <!-- メインエリア -->
+    <div id="MainArea">
+        <div class="MainContent">
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfbcNNldBvW-VlUGsOmJhL0ZxRe-xc5mVCRrrMpErQtzzIgUg/viewform?embedded=true"
+                width="100%" height="742" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+        </div>
+    </div>
+    <!-- フッターエリア -->
+    <div id="FooterArea"></div>
+</body>
+
+</html>
