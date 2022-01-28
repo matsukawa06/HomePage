@@ -1,3 +1,6 @@
+//
+// navAreaのアコーディオン動作
+//
 (function ($) {
     var $body = $('body');
     var $btn = $('.toggle_btn');
@@ -16,3 +19,7 @@
         $body.removeClass(open);
     });
 })(jQuery);
+
+//
+// linkの置換処理
+//
