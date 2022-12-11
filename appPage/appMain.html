@@ -8,70 +8,65 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="../css/common.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         //共通パーツの読み込み
         $(function () {
-            $("#navArea").load("./pageCommon/navArea.html");
-            $("#HeaderArea").load("./pageCommon/headerArea.html");
-            $("#FooterArea").load("./pageCommon/footerArea.html");
+            $("#navArea").load("../pageCommon/navArea.html");
+            $("#HeaderArea").load("../pageCommon/headerArea.html");
+            $("#FooterArea").load("../pageCommon/footerArea.html");
         });
     </script>
     <style>
         .MainContent {
-            width: 100%;
+            width: 90%;
+            text-align: left;
+            margin: 20px;
         }
 
-        .MainContent img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            object-position: 0 70%;
-            opacity: 0.8;
+        .AppTitle {
+            border-bottom: var(--bg-accent-color) 2px solid;
+            margin-top: 40px;
+            font-size: 1.17em;
+            margin-block-start: 1em;
+            margin-block-end: 0.2em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            /* padding-bottom: 0.2em; */
         }
 
-        .MainContent_TopText {
-            font-size: medium;
-            color: var(--font-base-color);
-            text-align: center;
-        }
-
-        .MainContent_navList {
-            margin-top: 80px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .MainContent_navList_item {
+        .TitleBox {
+            width: 0.7em;
+            margin-right: 0.1em;
             display: inline-block;
-            width: 60%;
-            max-width: 300px;
-            border: 1px solid var(--font-base-color);
-            border-radius: 10px;
+            background-color: var(--bg-accent-color);
         }
 
-        .MainContent_navList_item img {
-            width: 100%;
-            max-height: 150px;
-            border-radius: 10px 10px 0 0;
-            z-index: 8;
+        .AppBody {
+            padding-bottom: 0.2em;
+            background-color: #ffffe5;
         }
 
-        .MainContent_navList_item div {
-            display: flex;
-            width: 100%;
-            height: 40px;
-            margin-top: -5px;
-            background-color: var(--bg-main-color);
-            color: var(--font-main-color);
-            border-radius: 0 0 9px 9px;
-            align-items: center;
-            text-align: center;
+        .AppText {
+            margin: 0 1em 1em;
+            padding-top: 0.5em;
+            font-size: 0.9em;
         }
 
-        .MainContent_navList_item p {
-            width: 100%;
+        .ImageArea {
+            margin-left: 1em;
+            margin-bottom: 0.5em;
+        }
+
+        .ImageArea img {
+            width: 185px;
+            max-height: 400px;
+        }
+
+        .StoreURL {
+            margin-left: 1em;
         }
     </style>
 </head>
@@ -84,19 +79,53 @@
     <!-- メインエリア -->
     <div id="MainArea">
         <div class="MainContent">
-            <img src="./img/3197063_m.jpg">
-
-            <div class="MainContent_TopText">
-                <p>アプリ紹介</p>
+            <div class="PageTitle">
+                <h3>アプリ紹介</h3>
             </div>
-            <div class="MainContent_navList">
-                <div class="MainContent_navList_item">
-                    <a href="#">
-                        <img src="img/5142200_s.jpg">
-                        <div>
-                            <p>アプリ紹介</p>
-                        </div>
-                    </a>
+            <!-- 買い物計画リスト -->
+            <div class="AppTitle">
+                <div class="TitleBox">&nbsp;</div>
+                <div style="display: inline-block; padding: 0.2em 0;">買い物計画リスト</div>
+            </div>
+            <div class="AppBody">
+                <div class="AppText">
+                    <div>欲しい物、たくさんありませんか？</div>
+                    <div>あれもこれも買うと、いくら必要になるのかを簡単に知ることができます。</div>
+                    <div>金額計算の対象に含めたり含めなかったりし、購入予定金額を検討する場合に便利です。</div>
+                </div>
+                <div class="ImageArea">
+                    <img src="../img/shoppingList/image1.png" style="margin-right: 0.3em;">
+                    <img src="../img/shoppingList/image2.png">
+                </div>
+                <div class="StoreURL">
+                    <!-- width:250px; height: 83px; -->
+                    <a href="https://apps.apple.com/jp/app/%E8%B2%B7%E3%81%84%E7%89%A9%E8%A8%88%E7%94%BB%E3%83%AA%E3%82%B9%E3%83%88/id1596917066?itsct=apps_box_badge&amp;itscg=30200"
+                        style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img
+                            src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1641686400?h=c01ed7e5c3b1e772e1523a26351e3290"
+                            alt="Download on the App Store" style="border-radius: 13px; width: 10em; height: 4em;"></a>
+                </div>
+            </div>
+            <div style="margin-bottom: 3em;"></div>
+            <!-- カウントダウンリスト -->
+            <div class="AppTitle">
+                <div class="TitleBox">&nbsp;</div>
+                <div style="display: inline-block; padding: 0.2em 0;">カウントダウンリスト</div>
+            </div>
+            <div class="AppBody">
+                <div class="AppText">
+                    <div>イベントまでの残り日数、残り時間をカウントダウンします。</div>
+                    <div>過去のイベントを入力すると、経過日数をカウントアップすることもできます。</div>
+                </div>
+                <div class="ImageArea">
+                    <img src="../img/countDownList/image1.png" style="margin-right: 0.3em;">
+                    <img src="../img/countDownList/image2.png">
+                </div>
+                <div class="StoreURL">
+                    <!-- width:250px; height: 83px; -->
+                    <a href="https://apps.apple.com/jp/app/%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AA%E3%82%B9%E3%83%88/id6443632022?itsct=apps_box_badge&amp;itscg=30200"
+                        style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img
+                            src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1664668800?h=63e62a870f93576ff7d8070380324e02"
+                            alt="Download on the App Store" style="border-radius: 13px; width: 10em; height: 4em;"></a>
                 </div>
             </div>
         </div>
